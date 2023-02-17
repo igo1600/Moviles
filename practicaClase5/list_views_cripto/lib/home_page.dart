@@ -23,8 +23,17 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             //leading: Icon(${exchanges[index]["icon"]}),
+            leading: Image.network(exchanges[index]["image"]),
             title: Text('${exchanges[index]["name"]}'),
-            subtitle: Text('${exchanges[index]["country"]}'),
+            subtitle: Text(
+                '${exchanges[index]["country"]}\n${exchanges[index]["year_established"]}'),
+            trailing: CircleAvatar(
+              backgroundColor: Colors.black,
+              child: Text(
+                '${exchanges[index]["trust_score"]}',
+                style: TextStyle(color: Colors.white),
+              ),
+            )
           );
         },
       ),
